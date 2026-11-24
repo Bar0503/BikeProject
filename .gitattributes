@@ -1,0 +1,3 @@
+# Windows scriptek CRLF, Mac/Linux scriptek LF sorveggel
+*.bat text eol=crlf
+*.sh text eol=lf

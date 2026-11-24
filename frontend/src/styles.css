@@ -1,0 +1,422 @@
+/* Vilagos tema szinei */
+:root {
+  --bg: #f3f5f9;
+  --surface: #ffffff;
+  --surface-2: #f8fafc;
+  --text: #0f172a;
+  --muted: #64748b;
+  --border: #e2e8f0;
+  --primary: #4f46e5;
+  --primary-hover: #4338ca;
+  --primary-soft: #eef2ff;
+  --on-primary: #ffffff;
+  --danger: #dc2626;
+  --danger-soft: #fef2f2;
+  --shadow: 0 1px 2px rgb(15 23 42 / 0.06), 0 4px 16px rgb(15 23 42 / 0.06);
+  --radius: 14px;
+  color-scheme: light;
+}
+
+/* Sotet tema szinei */
+:root[data-theme='dark'] {
+  --bg: #0b1120;
+  --surface: #121a2b;
+  --surface-2: #182238;
+  --text: #e5e9f0;
+  --muted: #94a3b8;
+  --border: #26324a;
+  --primary: #818cf8;
+  --primary-hover: #a5b4fc;
+  --primary-soft: rgb(129 140 248 / 0.14);
+  --on-primary: #0b1120;
+  --danger: #f87171;
+  --danger-soft: rgb(248 113 113 / 0.12);
+  --shadow: 0 1px 2px rgb(0 0 0 / 0.3), 0 8px 24px rgb(0 0 0 / 0.25);
+  color-scheme: dark;
+}
+
+/* Alap */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+  background: var(--bg);
+  color: var(--text);
+  transition: background 0.2s, color 0.2s;
+}
+
+h1,
+h2,
+p {
+  margin: 0;
+}
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Gombok */
+button {
+  font: inherit;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--primary);
+  border-radius: 9px;
+  background: var(--primary);
+  color: var(--on-primary);
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+}
+
+button:hover {
+  background: var(--primary-hover);
+  border-color: var(--primary-hover);
+}
+
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 3px solid var(--primary-soft);
+  outline-offset: 1px;
+  border-color: var(--primary);
+}
+
+button.secondary {
+  background: var(--surface);
+  border-color: var(--border);
+  color: var(--text);
+}
+
+button.secondary:hover {
+  background: var(--surface-2);
+  border-color: var(--muted);
+}
+
+button.danger {
+  background: transparent;
+  border-color: transparent;
+  color: var(--danger);
+}
+
+button.danger:hover {
+  background: var(--danger-soft);
+}
+
+button.small {
+  padding: 0.3rem 0.7rem;
+  font-size: 0.85rem;
+}
+
+button.icon {
+  width: 2.4rem;
+  padding: 0.4rem 0;
+  font-size: 1.15rem;
+  line-height: 1;
+  color: var(--text);
+}
+
+/* Cim */
+.brand {
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+/* Belepes */
+.login-page {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+  background:
+    radial-gradient(circle at 20% 20%, var(--primary-soft), transparent 40%),
+    radial-gradient(circle at 80% 80%, rgb(6 182 212 / 0.12), transparent 40%),
+    var(--bg);
+}
+
+.login {
+  width: 100%;
+  max-width: 380px;
+  padding: 2.2rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.login .subtitle {
+  color: var(--muted);
+  margin-top: -0.4rem;
+}
+
+.login .brand {
+  font-size: 1.4rem;
+}
+
+.login button[type='submit'] {
+  padding: 0.65rem;
+}
+
+/* Felso sav */
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 0.75rem 2rem;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+}
+
+.tabs {
+  display: flex;
+  gap: 0.25rem;
+  padding: 0.25rem;
+  margin-right: auto;
+  border-radius: 11px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+}
+
+.tabs button {
+  border: none;
+  background: transparent;
+  color: var(--muted);
+  padding: 0.4rem 1rem;
+}
+
+.tabs button:hover {
+  color: var(--text);
+  background: transparent;
+}
+
+.tabs button.active {
+  background: var(--surface);
+  color: var(--text);
+  box-shadow: var(--shadow);
+}
+
+.topbar-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+/* Tartalom, az ablakkal egyutt valtozik */
+.content {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.page-header h2 {
+  font-size: 1.6rem;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+/* Tablazat */
+.table-wrap {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 0.75rem 0.9rem;
+  text-align: left;
+  vertical-align: middle;
+  border-bottom: 1px solid var(--border);
+}
+
+th {
+  white-space: nowrap;
+  background: var(--surface-2);
+  color: var(--muted);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+tbody tr:last-child td {
+  border-bottom: none;
+}
+
+tbody tr:hover td {
+  background: var(--surface-2);
+}
+
+/* Szamok, id-k es gombok egy sorban maradnak */
+td.num,
+th.num {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+td.id {
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+td.strong {
+  font-weight: 600;
+}
+
+td.empty {
+  padding: 2.5rem;
+  text-align: center;
+  color: var(--muted);
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.3rem;
+  white-space: nowrap;
+}
+
+.muted {
+  color: var(--muted);
+}
+
+/* A hosszu webcimek is torhetnek */
+td a {
+  overflow-wrap: anywhere;
+}
+
+/* Urlap */
+.form-panel {
+  margin-bottom: 1.5rem;
+  padding: 1.5rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--primary);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.form-panel h2 {
+  font-size: 1.15rem;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 1rem 1.2rem;
+  margin: 1.2rem 0;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+input,
+select {
+  font: inherit;
+  font-weight: 400;
+  padding: 0.55rem 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  background: var(--surface);
+  color: var(--text);
+}
+
+.form-buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+/* Hibauzenet */
+.error {
+  margin-bottom: 1rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--danger);
+  border-radius: 9px;
+  background: var(--danger-soft);
+  color: var(--danger);
+}
+
+/* Kozepes kepernyo */
+@media (max-width: 1050px) {
+  th,
+  td {
+    padding: 0.6rem 0.55rem;
+  }
+
+  /* A ket gomb egymas ala kerul */
+  .actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+@media (max-width: 860px) {
+  table {
+    font-size: 0.88rem;
+  }
+
+  th,
+  td {
+    padding: 0.5rem 0.4rem;
+  }
+
+  th {
+    letter-spacing: 0;
+  }
+}
+
+/* Keskeny kepernyo */
+@media (max-width: 720px) {
+  .topbar {
+    flex-wrap: wrap;
+    padding: 0.75rem 1rem;
+    gap: 0.75rem;
+  }
+
+  .content {
+    padding: 1.25rem 1rem;
+  }
+
+  .page-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
